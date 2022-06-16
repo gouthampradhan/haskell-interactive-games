@@ -1,15 +1,15 @@
 module Hangman
-    ( someFunc
+    ( startGame
     ) where
 
 import System.IO      
 
-someFunc :: IO ()
-someFunc = do hSetBuffering stdout LineBuffering
-              putStrLn "Think of a word:"
-              word <- sgetLine
-              putStrLn "Try to guess it:"
-              play word
+startGame :: IO ()
+startGame = do hSetBuffering stdout LineBuffering
+               putStrLn "Think of a word:"
+               word <- sgetLine
+               putStrLn "Try to guess it:"
+               play word
 
 match :: String -> String -> String
 match xs ys = [if x `elem` ys then x else '-' | x <- xs]
